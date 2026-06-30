@@ -9,7 +9,7 @@ import { CapacitorBarcodeScanner, CapacitorBarcodeScannerCameraDirection, Capaci
 })
 export class App {
   protected readonly title = signal('capacitor-barcode-scanning');
-  barcodes: string[] = [];
+  barcodes = signal<string[]>([]);
 
  async scan(): Promise<string | null> {
     try {
@@ -25,7 +25,7 @@ export class App {
         scanOrientation: CapacitorBarcodeScannerScanOrientation.PORTRAIT,
       });
       console.log('Scan result:', result);
-      this.barcodes.push(result.ScanResult);
+      this.barcodes.update(b => [...b, result.ScanResult]);
 
       return result.ScanResult;
     } catch (error) {

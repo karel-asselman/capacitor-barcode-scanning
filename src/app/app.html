@@ -8,7 +8,7 @@
   @if (barcodes.length > 0)
   {
     <ul>
-      @for (barcode of barcodes; track barcode)
+      @for (barcode of barcodes(); track barcode)
       {
         <li>{{ barcode }}</li>
       }
