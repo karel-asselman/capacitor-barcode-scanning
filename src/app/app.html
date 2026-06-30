@@ -5,7 +5,7 @@
 
 <div class="scan-results">
   <h3>Scan Results:</h3>
-  @if (barcodes.length > 0)
+  @if (barcodes().length > 0)
   {
     <ul>
       @for (barcode of barcodes(); track barcode)
